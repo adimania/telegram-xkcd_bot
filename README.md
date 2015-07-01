@@ -12,5 +12,5 @@ Components
 
 To Do
 ------
-* get random xkcd
+* ~~get random xkcd~~
 * get <number> xkcd
