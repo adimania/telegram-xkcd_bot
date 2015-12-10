@@ -1,9 +1,9 @@
 # telegram-xkcd_bot
-A telegram chat bot to get you the latest xkcd comic
+A telegram chat bot to get you the xkcd comic
 
 What is this?
 -----------
-It is a chat bot. You can go to https://web.telegram.org/#/im?p=@xkcd_bot and start a chat. Whatever you write, it'll reply with latest XKCD comic.
+It is a chat bot. You can go to https://web.telegram.org/#/im?p=@xkcd_bot and start a chat. You can request for latest xkcd comic or a random one. If you know the number of your favorite xkcd comics then you can ask for that as well.
 
 Components
 ----------
@@ -13,4 +13,5 @@ Components
 To Do
 ------
 * ~~get random xkcd~~
-* get <number> xkcd
+* ~~get numbered xkcd~~
+* add subscription for users who are interested in getting comics delivered on the chat.
