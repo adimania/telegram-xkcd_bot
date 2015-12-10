@@ -30,8 +30,15 @@ def webhook():
             data = {'photo': open('images/latest.png', 'rb')}
         elif msg in ['moar', 'more', 'random']:
             data = {'photo': open('images/%s' % random.choice(images), 'rb')}
+        elif msg.isdigit():
+            try:
+                data = {'photo': open('images/' + msg + '.png', 'rb')}
+            except:
+                reply = 'I could not find anything with this number. How about I give you the latest comic? Just type "new".'
+                requests.post('https://api.telegram.org/bot%s/sendMessage?chat_id=%s' % (api_key,str(chat_id)), data={'text':reply})
+                return '{"status":"ok"}'
         else:
-            reply = 'Hello! I am XKCD Bot. I can serve you the latest XKCD comic or a random one. What would you like? \nYou can say "new" or "latest" for the latest comic and "more" or "random" for a random comic.'
+            reply = 'Hello! I am XKCD Bot. I can serve you the latest XKCD comic or a random one. What would you like? \nYou can say "new" or "latest" for the latest comic and "more" or "random" for a random comic.\nI can serve comics by numbers as well. Just type in an integer and I will check if I have a corresponding comic.'
             requests.post('https://api.telegram.org/bot%s/sendMessage?chat_id=%s' % (api_key,str(chat_id)), data={'text':reply}) 
             return '{"status":"ok"}'
         r = requests.post(url, files=data)
